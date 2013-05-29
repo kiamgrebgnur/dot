@@ -24,11 +24,11 @@ do
 	#printf "%s" ${f:0:2}
 	#if [ $f = "."  -o  $f = ".." -o $f = ".git" -o $f = ".gitignore" ]; then
 	#if [[ $blacklist =~ $f ]]; then
+	
 	for bl in $blacklist
 	do
-		if [ $f = $bl ]; then	
-			continue
-		fi
+		[ $f = $bl ] && continue 2
+		
 	done
 	
 	if [ $noask = "false" ]; then
